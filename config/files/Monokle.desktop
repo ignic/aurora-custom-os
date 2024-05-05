@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Monokle
+Exec=/usr/share/monokle/monokle %U
+Terminal=false
+Type=Application
+Icon=Monokle
+StartupWMClass=Monokle
+Comment=Desktop IDE for working with Kubernetes Clusters and YAML configurations
+Categories=Development;
