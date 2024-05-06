@@ -35,7 +35,7 @@ modules:
         # - org.mozilla.firefox
         # - org.gnome.Loupe
         # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
-        - com.quexten.Goldwarden
+        - com.bitwarden.desktop
         - org.videolan.VLC
         - org.gnome.meld
         - sh.cider.Cider
