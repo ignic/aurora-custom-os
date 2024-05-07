@@ -50,10 +50,12 @@ modules:
 
   # Install monokle.io app
   - type: script
-    snippets:
-    - 'mkdir -p /usr/share/monokle && curl -L https://github.com/kubeshop/monokle/releases/download/downloads/Monokle-linux-x86_64.AppImage -o ${_}/monokle && chmod 0755 ${_}'
-    #- "mv /usr/share/ublue-os/ublue-os.jsonc /tmp/ublue-os.jsonc && jq '.display.color.keys = \"blue\" | .modules[0].color.user = \"blue\"' /tmp/ublue-os.jsonc > /usr/share/ublue-os/ublue-os.jsonc && rm -f /tmp/ublue-os.jsonc"
-    - 'cat <<< $(jq ''.display.color.keys = "blue" | .modules[0].color.user = "blue"'' /usr/share/ublue-os/ublue-os.jsonc) > /usr/share/ublue-os/ublue-os.jsonc'
+    scripts:
+      - customize.sh
+    # snippets:
+    # - 'mkdir -p /usr/share/monokle && curl -L https://github.com/kubeshop/monokle/releases/download/downloads/Monokle-linux-x86_64.AppImage -o ${_}/monokle && chmod 0755 ${_}'
+    # - "mv /usr/share/ublue-os/ublue-os.jsonc /tmp/ublue-os.jsonc && jq '.display.color.keys = \"blue\" | .modules[0].color.user = \"blue\"' /tmp/ublue-os.jsonc > /usr/share/ublue-os/ublue-os.jsonc && rm -f /tmp/ublue-os.jsonc"
+    # - 'cat <<< $(jq ''.display.color.keys = "blue" | .modules[0].color.user = "blue"'' /usr/share/ublue-os/ublue-os.jsonc) > /usr/share/ublue-os/ublue-os.jsonc'
   - type: files
     files:
       - Monokle.desktop: /usr/share/applications/Monokle.desktop
