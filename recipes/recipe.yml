@@ -10,10 +10,14 @@ image-version: 40 # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  - type: containerfile
+    snippets:
+      - COPY --from=ghcr.io/ignic/akmods-extra:main-40 /rpms/ /tmp/rpms
+      - RUN find /tmp/rpms
+      - RUN rpm-ostree install /tmp/rpms/kmods/kmod-xmm7360-pci*.rpm
   - type: rpm-ostree
     repos:
-      # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      
+      # - https://copr.fedorainfracloud.org/coprs/ignic/akmods/repo/fedora-%OS_VERSION%/ignic-akmods-fedora-%OS_VERSION%.repo
     install:
       # - micro
       # - starship
@@ -52,10 +56,11 @@ modules:
   - type: script
     scripts:
       - customize.sh
-    # snippets:
+    snippets:
     # - 'mkdir -p /usr/share/monokle && curl -L https://github.com/kubeshop/monokle/releases/download/downloads/Monokle-linux-x86_64.AppImage -o ${_}/monokle && chmod 0755 ${_}'
     # - "mv /usr/share/ublue-os/ublue-os.jsonc /tmp/ublue-os.jsonc && jq '.display.color.keys = \"blue\" | .modules[0].color.user = \"blue\"' /tmp/ublue-os.jsonc > /usr/share/ublue-os/ublue-os.jsonc && rm -f /tmp/ublue-os.jsonc"
     # - 'cat <<< $(jq ''.display.color.keys = "blue" | .modules[0].color.user = "blue"'' /usr/share/ublue-os/ublue-os.jsonc) > /usr/share/ublue-os/ublue-os.jsonc'
+    #  - 'rpm-ostree install kernel-devel-matched xmm7360-pci'
   - type: files
     files:
       - Monokle.desktop: /usr/share/applications/Monokle.desktop
