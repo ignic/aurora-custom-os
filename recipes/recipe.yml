@@ -15,9 +15,9 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ignic/akmods/repo/fedora-%OS_VERSION%/ignic-akmods-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ignic/keyd/repo/fedora-%OS_VERSION%/ignic-keyd-fedora-%OS_VERSION%.repo
     install:
-      - kitty
+      - xmm7360-pci
       - keyd
-      - pre-commit
+      - kitty
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
@@ -61,11 +61,4 @@ modules:
       - Monokle.desktop: /usr/share/applications/Monokle.desktop
       - Monokle.png: /usr/share/icons/hicolor/512x512/apps/Monokle.png
 
-  - type: containerfile
-    snippets:
-      - COPY --from=ghcr.io/ignic/akmods-extra:main-40 /rpms/ /tmp/rpms
-      - RUN find /tmp/rpms
-      - RUN rpm-ostree install /tmp/rpms/kmods/kmod-xmm7360-pci*.rpm
-
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
-
