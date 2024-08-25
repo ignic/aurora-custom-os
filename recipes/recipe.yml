@@ -26,16 +26,16 @@ modules:
     system:
       install:
         - com.bitwarden.desktop
-        - org.videolan.VLC
-        - org.gnome.meld
-        - sh.cider.Cider
-        - com.usebottles.bottles
-        - com.todoist.Todoist
-        - io.podman_desktop.PodmanDesktop
         - com.calibre_ebook.calibre
-        - org.localsend.localsend_app
-        - org.gimp.GIMP
         - com.ktechpit.whatsie
+        - com.todoist.Todoist
+        - com.usebottles.bottles
+        - io.podman_desktop.PodmanDesktop
+        - org.gimp.GIMP
+        - org.gnome.meld
+        - org.localsend.localsend_app
         - org.telegram.desktop
+        - org.videolan.VLC
+        - sh.cider.Cider
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
