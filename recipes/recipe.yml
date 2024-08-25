@@ -49,18 +49,4 @@ modules:
       remove:
       # - org.gnome.eog
 
-  # Install monokle.io app
-  - type: script
-    scripts:
-      - customize.sh
-    snippets:
-    # - 'mkdir -p /usr/share/monokle && curl -L https://github.com/kubeshop/monokle/releases/download/downloads/Monokle-linux-x86_64.AppImage -o ${_}/monokle && chmod 0755 ${_}'
-    # - "mv /usr/share/ublue-os/ublue-os.jsonc /tmp/ublue-os.jsonc && jq '.display.color.keys = \"blue\" | .modules[0].color.user = \"blue\"' /tmp/ublue-os.jsonc > /usr/share/ublue-os/ublue-os.jsonc && rm -f /tmp/ublue-os.jsonc"
-    # - 'cat <<< $(jq ''.display.color.keys = "blue" | .modules[0].color.user = "blue"'' /usr/share/ublue-os/ublue-os.jsonc) > /usr/share/ublue-os/ublue-os.jsonc'
-    #  - 'rpm-ostree install kernel-devel-matched xmm7360-pci'
-  - type: files
-    files:
-      - Monokle.desktop: /usr/share/applications/Monokle.desktop
-      - Monokle.png: /usr/share/icons/hicolor/512x512/apps/Monokle.png
-
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
