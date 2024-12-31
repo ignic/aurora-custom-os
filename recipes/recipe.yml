@@ -13,12 +13,13 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/ignic/akmods/repo/fedora-%OS_VERSION%/ignic-akmods-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/pgdev/ghostty/repo/fedora-%OS_VERSION%/pgdev-ghostty-fedora-%OS_VERSION%.repo
     install:
       - xmm7360-pci
       - kitty
       - snapper
       - btrfs-assistant
-
+      - ghostty
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
     system:
